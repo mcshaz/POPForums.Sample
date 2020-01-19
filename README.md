@@ -18,6 +18,9 @@ The included gulpfile.js copies the client files as necessary. You also need the
 For the latest information and documentation, and how to get started, check the docs:
 https://popworldmedia.github.io/POPForums/
 
+The commercially hosted version, if you don't want to run it yourself, is here:
+https://popforums.com/
+
 The main project on Github:
 https://github.com/POPWorldMedia/POPForums
 
@@ -27,7 +30,7 @@ https://popforumsdev.azurewebsites.net/Forums
 [![Build status](https://popw.visualstudio.com/POP%20Forums/_apis/build/status/popforumsdev)](https://popw.visualstudio.com/POP%20Forums/_build/latest?definitionId=2)
 
 Latest release:
-https://github.com/POPWorldMedia/POPForums/releases/tag/v16.0.0
+https://github.com/POPWorldMedia/POPForums/releases/tag/v16.0.1
 
 The latest CI build packages can be found with these feeds on MyGet:
 https://www.myget.org/F/popforums/api/v3/index.json
