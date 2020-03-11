@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewBag.Title</title>
-    <script cache-src="~/lib/bundle.min.js"></script>
+    <script src="~/lib/bundle.min.js"></script>
     <script>
         var $buoop = { required: { e: -4, f: -3, o: -3, s: -1, c: -3 }, insecure: true, unsupported: true, api: 2020.03 };
         function $buo_f() {
@@ -15,7 +15,8 @@
         try { document.addEventListener("DOMContentLoaded", $buo_f, false) }
         catch (e) { window.attachEvent("onload", $buo_f) }
     </script>
-    <link cache-href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
     @RenderSection("HeaderContent", false)
 </head>
     <body>
