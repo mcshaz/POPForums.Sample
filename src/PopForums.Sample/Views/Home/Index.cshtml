@@ -1,12 +1,31 @@
-﻿<!DOCTYPE html>
-
-<html>
-<head>
-	<title>POP Forums Sample</title>
-</head>
-<body>
-<div>
-	<p><a href="/Forums">Go to forums</a></p>
+﻿@{
+	Layout = "_Layout";
+}
+<img src="~/ANZICS-LOGO.jpg" alt="ANZICS Logo" class="img-fluid"/>
+<div class="jumbotron">
+	<h1 class="display-4">Welcome to ANZICS NZ</h1>
+	<p class="lead">This is a site for discussing matters related to the provision of intensive care to New Zealanders.</p>
+	<hr class="my-4">
+	<p>
+		It is for health professionals, including doctors, nurses and allied health professionals who work in intensive care units in New Zealand.
+		ICU trainees and also anaesthetists who proved medical cover to ICU are welcome (and encouraged) to join.
+	</p>
+	</p>
 </div>
-</body>
-</html>
+<div class="card">
+	<p class="card-header">
+		If you are signing up please:
+	</p>
+	<div class="card-body">
+		<ul class="list-group">
+			<li class="list-group-item list-group-item-primary">Use your work email initially</li>
+			<li class="list-group-item list-group-item-secondary">Username shoud be your first and last name used by colleagues</li>
+			<li class="list-group-item list-group-item-success">Uploading a picture is encouraged <small class="text-muted">(so we can recognise one another at professional meetings)</small></li>
+			<li class="list-group-item list-group-item-danger">There will be a delay while the forum administrator approves your account</li>
+		</ul>
+	</div>
+</div>
+<hr class="my-4">
+<p class="lead">
+	<a class="btn btn-primary btn-lg" href="/Forums" role="button">Take me to the forums</a>
+</p>

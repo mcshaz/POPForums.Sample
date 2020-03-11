@@ -2,11 +2,13 @@
   "name": "popforums.sample",
   "version": "16.0.0",
   "scripts": {},
-	"dependencies": {
-		"@popworldmedia/popforums": "16.0.0" 
-	},
+  "dependencies": {
+    "@popworldmedia/popforums": "16.0.0"
+  },
   "devDependencies": {
-    "gulp": "4.0.0",
-    "merge-stream": "1.0.1"
+    "gulp": "4.0.2",
+    "gulp-concat": "2.6.1",
+    "merge-stream": "2.0.0",
+    "gulp-debug": "4.0.0"
   }
 }
