@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -10,10 +9,6 @@ using PopForums.Extensions;
 using PopForums.Mvc.Areas.Forums.Authorization;
 using PopForums.Mvc.Areas.Forums.Extensions;
 using PopForums.Sql;
-using Microsoft.Extensions.Hosting;
-using System;
-using Microsoft.Net.Http.Headers;
-using PopForums.Sample.Caching;
 
 namespace PopForums.Sample
 {
@@ -81,45 +76,18 @@ namespace PopForums.Sample
 			// creates an instance of the background services for POP Forums... call this last in forum setup,
 			// but don't use if you're running these in functions
 			services.AddPopForumsBackgroundServices();
-
-			// cache static files
-			services.AddUrlHelper();
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
 		public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory loggerFactory)
 		{
-			StaticFileOptions staticOptions;
-			if (env.IsDevelopment())
-			{
-				app.UseDeveloperExceptionPage();
-				staticOptions = new StaticFileOptions();
-			}
-			else
-			{
-				app.UseExceptionHandler("Home/Error");
-				// The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-				app.UseHsts();
-
-				staticOptions = new StaticFileOptions
-				{
-					OnPrepareResponse = context => context.Context.Response.GetTypedHeaders()
-						.CacheControl = new CacheControlHeaderValue
-						{
-							Public = true,
-							MaxAge = TimeSpan.FromDays(1) // 1 year
-						}
-				};
-			}
-			app.UseStaticFiles(staticOptions);
-
-			app.UseHttpsRedirection();
-
 			// Records exceptions and info to the POP Forums database.
 			loggerFactory.AddPopForumsLogger(app);
 
 			// Enables languages
 			app.UsePopForumsCultures();
+
+			app.UseStaticFiles();
 
 			// Not unique to POP Forums, but required.
 			app.UseAuthentication();
