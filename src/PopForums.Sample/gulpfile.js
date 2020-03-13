@@ -4,6 +4,7 @@ const gulp = require("gulp");
 const merge = require("merge-stream");
 const concat = require('gulp-concat');
 const debug = require('gulp-debug');
+const fnHash = require("gulp-hash-filename");
 // const minify = require('gulp-minify');
 // const cleanCss = require('gulp-clean-css');
 
@@ -27,7 +28,8 @@ gulp.task("merge-js", function () {
 	const jsstreams = ["jquery/dist/**/jquery.min.js", "bootstrap/dist/**/bootstrap.bundle.min.js"].map((s) => nodeRoot + s);
 	return gulp.src(jsstreams)
 		.pipe(debug())
-		.pipe(concat('bundle.min.js'))
+		.pipe(concat('bundle.js'))
+		.pipe(fnHash())
 		.pipe(gulp.dest(targetPath));
 });
 
