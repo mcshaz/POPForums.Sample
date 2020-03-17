@@ -10,6 +10,9 @@ using PopForums.Extensions;
 using PopForums.Mvc.Areas.Forums.Authorization;
 using PopForums.Mvc.Areas.Forums.Extensions;
 using PopForums.Sql;
+using PopForumTasks;
+using RazorEmails.Services;
+using System;
 
 namespace PopForums.Sample
 {
@@ -45,6 +48,14 @@ namespace PopForums.Sample
 				// identifies users on POP Forums actions
 				options.Filters.Add(typeof(PopForumsUserAttribute));
 			});
+
+			// setup give regular email updates
+			services.AddTransient<IRazorViewToStringRenderer, RazorViewToStringRenderer>();
+			services.AddCronJob<SendUpdateEmailCron>(c => {
+				c.TimeZoneInfo = TimeZoneInfo.Local;
+				c.CronExpression = "45 15 * * 2";
+			});
+			// end
 
 			// It's unfortunately necessary to use the Json.NET serializer for API requests because System.Text.Json doesn't handler enums correctly
 			services.AddControllers().AddNewtonsoftJson();

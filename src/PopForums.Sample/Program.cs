@@ -17,16 +17,15 @@ namespace PopForums.Sample
 			CreateWebHostBuilder(args).Build().Run();
 		}
 
-		public static IWebHostBuilder CreateWebHostBuilder(string[] args) 
+		public static IWebHostBuilder CreateWebHostBuilder(string[] args)
 		{
-			var env = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
+			// var env = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
 			var builder = WebHost.CreateDefaultBuilder(args);
-			if (env == Microsoft.Extensions.Hosting.Environments.Development || env == Microsoft.Extensions.Hosting.Environments.Production)
-			{
-				builder.UseIIS();
-			}
+
+			builder.UseIIS();
 
 			builder.UseStartup<Startup>();
 			return builder;
+		}
 	}
 }
